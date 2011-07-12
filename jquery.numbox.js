@@ -46,21 +46,21 @@
               def.decimals=6;
           }
           // przedzial
-//          var max_range = 10000; //Math.pow(10,def.integers)-1+(Math.pow(10,def.decimals)-1)/Math.pow(10,def.decimals);
-//          if(typeof(def.max_value)!="number" || def.max_value>max_range)
-//          {
-//                def.max_value=max_range;
-//          }
-//          
-//          if(typeof(def.min_value)!="number" || def.min_value<-max_range)
-//          {
-//                def.min_value=-max_range;
-//          }
-//          if(def.min_value>=def.max_value)
-//          {
-//              def.max_value =  max_range;
-//              def.min_value = -max_range;
-//          }
+          var max_range = 10000; //Math.pow(10,def.integers)-1+(Math.pow(10,def.decimals)-1)/Math.pow(10,def.decimals);
+          if(typeof(def.max_value)!="number" || def.max_value>max_range)
+          {
+                def.max_value=max_range;
+          }
+          
+          if(typeof(def.min_value)!="number" || def.min_value<-max_range)
+          {
+                def.min_value=-max_range;
+          }
+          if(def.min_value>=def.max_value)
+          {
+              def.max_value =  max_range;
+              def.min_value = -max_range;
+          }
           if(!(def.button_text instanceof Array) || def.button_text.length<2)
           {
               def.button_text = ["", ""];
@@ -629,11 +629,11 @@
               t.keypress(keypress_handler);
               t.keydown(keydown_handler);
               
-//              t.attr("maxlength",
-//               (def.min_value<0 ? 1 : 0)+
-//                def.integers +
-//               (def.decimals>0 ? def.decimals+1 : 0)
-//              );
+              t.attr("maxlength",
+               (def.min_value<0 ? 1 : 0)+
+                def.integers +
+               (def.decimals>0 ? def.decimals+1 : 0)
+              );
 
               if(label.length && def.use_label){
                  label.css("cursor", "e-resize");
