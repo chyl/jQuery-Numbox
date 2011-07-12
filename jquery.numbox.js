@@ -18,7 +18,8 @@
               accleration: true,     // use acceleration when button pressed?
               change:null,           // change event handler
               costum_class: "numbox",// name of calss
-              button_text: ["+", "-"]// buttons labels [inc, dec] or null
+              button_text: ["+", "-"],// buttons labels [inc, dec] or null
+              round_up: true          // determine if rounding should acts as ceil function 
           }
           $.extend(def, config);
           
@@ -128,7 +129,7 @@
              if(mod!=0 && mod!=def.increment)
              {         // ^^^^^^^^^^^^^^^^^^ fucking floats in js
                abs = mod<def.increment/2 ? abs - mod : abs - mod + def.increment;
-               a = start_value + (a<start_value ? -1 : 1) * abs;
+               a = start_value + (a<start_value ? -1 : 1) * abs + (def.round_up ? def.increment : 0);
                if(a<def.min_value)
                     a+=def.increment;
                else if(a>def.max_value)
