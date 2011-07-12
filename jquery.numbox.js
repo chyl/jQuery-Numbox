@@ -115,9 +115,11 @@
 
           function round_to_inc(a, start_value, el)
           {
-             if(typeof(el.start_value)!="number")
+             if(isNaN((new Number(el.start_value))))
              {
                  start_value = 0;
+             } else {
+                 start_value = new Number(el.start_value);
              }
              
              var abs = Math.abs(a-el.start_value);
